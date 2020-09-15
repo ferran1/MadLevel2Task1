@@ -6,11 +6,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.madlevel2task1.databinding.ItemPlaceBinding
 
-class PlaceAdapter(
-
-    private val places: ArrayList<Place>
-
-) : RecyclerView.Adapter<PlaceAdapter.ViewHolder>() {
+class PlaceAdapter(private val places: List<Place>)
+    : RecyclerView.Adapter<PlaceAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
@@ -19,7 +16,7 @@ class PlaceAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.databind(places[position])
+        holder.bind(places[position])
     }
 
     // Returns the number of places in the ArrayList
@@ -28,12 +25,13 @@ class PlaceAdapter(
     }
 
     // ViewHolder innerclass
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         val binding = ItemPlaceBinding.bind(itemView)
 
-        fun databind(place: Place) {
+        fun bind(place: Place) {
             binding.tvPlace.text = place.name
+            binding.ivPlace.setImageResource(place.imageResId)
         }
     }
 

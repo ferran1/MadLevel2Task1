@@ -9,7 +9,7 @@ import com.example.madlevel2task1.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var places: ArrayList<Place>
+    private val places = arrayListOf<Place>()
     private val placeAdapter = PlaceAdapter(places)
 
     override fun onCreate(savedInstanceState: Bundle?) {
